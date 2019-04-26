@@ -102,6 +102,34 @@ function Pyramid(opts) {
   group.add(triangleR)
   group.add(trapezoidL)
   group.add(trapezoidR)
+
+  // 标题
+  var title = new zrender.Text({
+    style: {
+      text: opts.title.text,
+      textFill: opts.title.color,
+      fontSize: opts.title.fontSize,
+      textAlign: 'center'
+    },
+    position: [100, 10]
+  })
+
+  group.add(title)
+
+  // 标题
+  opts.navBar.data.forEach(function(ele, ind) {
+    var bar = new zrender.Text({
+      style: {
+        text: ele,
+        textFill: opts.navBar.textStyle.color,
+        textAlign: 'center'
+      },
+      position: [50 + 100 * ind, opts.shape.y + 50]
+    })
+  
+    group.add(bar)
+  })
+
   return group
 }
 

@@ -12,13 +12,7 @@ YbChart.prototype.init = function(dom) {
 
 YbChart.prototype.pyramid = function(opts) {
   var _opts = opts || {}
-  var pyramid = Pyramid({
-    shape: _opts.shape || {
-      x: 100,
-      y: 100,
-      height: 50,
-    }
-  })
+  var pyramid = Pyramid(opts)
   this.zr.add(pyramid);
 }
 
