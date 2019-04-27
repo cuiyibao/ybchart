@@ -1,6 +1,6 @@
 {
   "name": "ybchart",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "图形",
   "main": "index.js",
   "scripts": {

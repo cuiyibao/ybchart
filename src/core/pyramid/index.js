@@ -121,7 +121,7 @@ function Pyramid(opts) {
     var circle = new zrender.Circle({
       shape: {
         cx: 30 + 100 * ind,
-        cy: opts.shape.y + 115,
+        cy: opts.shape.y + 145,
         r: 6
       },
       style: {
@@ -138,7 +138,7 @@ function Pyramid(opts) {
         textAlign: 'center',
         textVerticalAlign: 'top'
       },
-      position: [60 + 100 * ind, opts.shape.y + 110]
+      position: [60 + 100 * ind, opts.shape.y + 140]
     })
   
     group.add(bar)
