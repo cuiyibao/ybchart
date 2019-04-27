@@ -78,7 +78,7 @@ function Pyramid(opts) {
       direction: "right"
     }),
     style: {
-      fill: "#de4d96"
+      fill: opts.color[0]
     }
   })
 
@@ -94,7 +94,7 @@ function Pyramid(opts) {
       direction: "right"
     }),
     style: {
-      fill: "#2651cc"
+      fill: opts.color[1]
     }
   })
 
@@ -118,13 +118,27 @@ function Pyramid(opts) {
 
   // 标题
   opts.navBar.data.forEach(function(ele, ind) {
+    var circle = new zrender.Circle({
+      shape: {
+        cx: 30 + 100 * ind,
+        cy: opts.shape.y + 115,
+        r: 6
+      },
+      style: {
+        fill: opts.color[ind],
+      },
+    })
+  
+    group.add(circle)
+
     var bar = new zrender.Text({
       style: {
         text: ele,
         textFill: opts.navBar.textStyle.color,
-        textAlign: 'center'
+        textAlign: 'center',
+        textVerticalAlign: 'top'
       },
-      position: [50 + 100 * ind, opts.shape.y + 50]
+      position: [60 + 100 * ind, opts.shape.y + 110]
     })
   
     group.add(bar)

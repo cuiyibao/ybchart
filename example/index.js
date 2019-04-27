@@ -17,6 +17,7 @@ ybchart.pyramid({
     color: "red",
     fontSize: 14
   },
+  color: ["#de4d96", "#2651cc"],
   navBar: {
     textStyle: {
       color: "#6775ad"
