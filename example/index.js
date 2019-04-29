@@ -9,8 +9,9 @@ ybchart.init(App)
 ybchart.pyramid({
   shape: {
     x: 100,
-    y: 30,
+    y: 50,
     height: 40,
+    radian: 50
   },
   title: {
     text: "营业收入完成率",
