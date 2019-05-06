@@ -118,37 +118,37 @@ function Pyramid(opts) {
 
   group.add(triangleL)
   group.add(triangleR)
-  // group.add(trapezoidL)
-  // group.add(trapezoidR)
+  group.add(trapezoidL)
+  group.add(trapezoidR)
 
-  triangleL.animateTo({
-    shape: {
-      radian: 10
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
-  triangleR.animateTo({
-    shape: {
-      radian: 90
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
-  trapezoidL.animateTo({
-    shape: {
-      radian: 10
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
-  trapezoidR.animateTo({
-    shape: {
-      radian: 90
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
+  // triangleL.animateTo({
+  //   shape: {
+  //     radian: 10
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
+  // triangleR.animateTo({
+  //   shape: {
+  //     radian: 90
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
+  // trapezoidL.animateTo({
+  //   shape: {
+  //     radian: 10
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
+  // trapezoidR.animateTo({
+  //   shape: {
+  //     radian: 90
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
 
   // 标题
   var title = new zrender.Text({
