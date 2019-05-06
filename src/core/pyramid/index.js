@@ -11,7 +11,7 @@ function Pyramid(opts) {
       y: 0,
       width: 0,
       height: 0,
-      radian: 50,
+      radian: 40,
       direction: "left"
     },
     buildPath: function(path, shape) {
@@ -19,29 +19,29 @@ function Pyramid(opts) {
       var y = shape.y
       var h = shape.height
 
-      var radianL = 2 * Math.PI / 360 * 50; // 左角度
-      var yL = Math.sin(radianL) * h // 三角形 上边
-      var xL = Math.cos(radianL) * h; // 三角形 高
+      var radianL = 2 * Math.PI / 360 * 40; // 左角度
+      var xL = Math.sin(radianL) * h; // 三角形 高
+      var yL = Math.cos(radianL) * h // 三角形 上边
 
       path.moveTo(x, y)
       if (shape.direction == "right") {
-        path.lineTo(x + yL, y + xL)
+        path.lineTo(x + xL, y + yL)
       } else {
-        path.lineTo(x - yL, y + xL)
+        path.lineTo(x - xL, y + yL)
       }
 
-      if (shape.radian > 50) {
-        var radianR = 2 * Math.PI / 360 * (shape.radian - 50); // 角度
-        var yR = Math.sin(radianR) * h // 三角形 上边
-        var xR = Math.cos(radianR) * h; // 三角形 高
-        path.lineTo(x - yR, y + xR)
-      } else if (shape.radian == 50) {
+      if (shape.radian > 40) {
+        var radianR = 2 * Math.PI / 360 * (shape.radian - 40); // 角度
+        var xR = Math.sin(radianR) * h; // 三角形 高
+        var yR = Math.cos(radianR) * h // 三角形 上边
+        path.lineTo(x - xR, y + yR)
+      } else if (shape.radian == 40) {
         path.lineTo(x, y + h)
       } else {
-        var radianR = 2 * Math.PI / 360 * (50 - shape.radian); // 角度
-        var yR = Math.sin(radianR) * h // 三角形 上边
-        var xR = Math.cos(radianR) * h; // 三角形 高
-        path.lineTo(x - yR, y + xR)
+        var radianR = 2 * Math.PI / 360 * (40 - shape.radian); // 角度
+        var xR = Math.sin(radianR) * h; // 三角形 高
+        var yR = Math.cos(radianR) * h // 三角形 上边
+        path.lineTo(x - xR, y + yR)
       }
       path.fill()
     }
@@ -55,7 +55,7 @@ function Pyramid(opts) {
       y: 0,
       width: 0,
       height: 0,
-      radian: 50,
+      radian: 40,
       direction: "left"
     },
     buildPath: function(path, shape) {
@@ -64,20 +64,39 @@ function Pyramid(opts) {
       var h = shape.height
       var tH = 100 - shape.height
 
-      var radian = 2 * Math.PI / 360 * shape.radian; // 角度
-      var a = Math.sin(radian) * h // 三角形 上边
-      var q = Math.cos(radian) * h; // 三角形 高
-      var tA = Math.sin(radian) * tH // 三角形 上边
-      var tQ = Math.cos(radian) * tH; // 三角形 高
+      var radian = 2 * Math.PI / 360 * 40; // 角度
+      var xL = Math.sin(radian) * h; // 三角形 高
+      var yL = Math.cos(radian) * h // 三角形 上边
+      var tA = Math.sin(radian) * tH // 三角形 高
+      var tQ = Math.cos(radian) * tH; // 三角形 上边
       if (shape.direction == "right") {
-        path.moveTo(x + q, y + a)
-        path.lineTo(x + q + tQ, y + a + tA)
+        path.moveTo(x + xL, y + yL)
+        path.lineTo(x + xL + tA, y + yL + tQ)
       } else {
-        path.moveTo(x - q, y + a)
-        path.lineTo(x - q - tQ, y + a + tA)
+        path.moveTo(x - xL, y + yL)
+        path.lineTo(x - xL - tA, y + yL + tQ)
       }
-      path.lineTo(x, y + h + tH)
-      path.lineTo(x, y + h)
+
+      if (shape.radian > 40) {
+        var radianR = 2 * Math.PI / 360 * (shape.radian - 40); // 角度
+        var xR = Math.sin(radianR) * h; // 三角形 高
+        var yR = Math.cos(radianR) * h // 三角形 上边
+        var rA = Math.sin(radianR) * tH // 三角形 高
+        var rQ = Math.cos(radianR) * tH; // 三角形 上边
+        path.lineTo(x - xR - rA, y + yR + rQ)
+        path.lineTo(x - xR, y + yR)
+      } else if (shape.radian == 40) {
+        path.lineTo(x, y + h + tH)
+        path.lineTo(x, y + h)
+      } else {
+        var radianR = 2 * Math.PI / 360 * (40 - shape.radian); // 角度
+        var xR = Math.sin(radianR) * h; // 三角形 高
+        var yR = Math.cos(radianR) * h // 三角形 上边
+        var rA = Math.sin(radianR) * tH // 三角形 高
+        var rQ = Math.cos(radianR) * tH; // 三角形 上边
+        path.lineTo(x - xR - rA, y + yR + rQ)
+        path.lineTo(x - xR, y + yR)
+      }
       path.fill()
     }
   })
@@ -91,8 +110,7 @@ function Pyramid(opts) {
 
   var triangleR = new Triangle({
     shape: Object.assign(util.deepClone(opts.shape), {
-      direction: "right",
-      radian: 100 - opts.shape.radian
+      direction: "right"
     }),
     style: {
       fill: opts.color[0]
@@ -108,8 +126,7 @@ function Pyramid(opts) {
 
   var trapezoidR = new Trapezoid({
     shape: Object.assign(util.deepClone(opts.shape), {
-      direction: "right",
-      radian: 100 - opts.shape.radian
+      direction: "right"
     }),
     style: {
       fill: opts.color[1]
@@ -121,34 +138,34 @@ function Pyramid(opts) {
   group.add(trapezoidL)
   group.add(trapezoidR)
 
-  // triangleL.animateTo({
-  //   shape: {
-  //     radian: 10
-  //   }
-  // }, 3000, 100, 'rotate', function () {
-  //     // done
-  // });
-  // triangleR.animateTo({
-  //   shape: {
-  //     radian: 90
-  //   }
-  // }, 3000, 100, 'rotate', function () {
-  //     // done
-  // });
-  // trapezoidL.animateTo({
-  //   shape: {
-  //     radian: 10
-  //   }
-  // }, 3000, 100, 'rotate', function () {
-  //     // done
-  // });
-  // trapezoidR.animateTo({
-  //   shape: {
-  //     radian: 90
-  //   }
-  // }, 3000, 100, 'rotate', function () {
-  //     // done
-  // });
+  triangleL.animateTo({
+    shape: {
+      radian: 0
+    }
+  }, 3000, 100, 'rotate', function () {
+      // done
+  });
+  triangleR.animateTo({
+    shape: {
+      radian: 80
+    }
+  }, 3000, 100, 'rotate', function () {
+      // done
+  });
+  trapezoidL.animateTo({
+    shape: {
+      radian: 0
+    }
+  }, 3000, 100, 'rotate', function () {
+      // done
+  });
+  trapezoidR.animateTo({
+    shape: {
+      radian: 80
+    }
+  }, 3000, 100, 'rotate', function () {
+      // done
+  });
 
   // 标题
   var title = new zrender.Text({

@@ -11,7 +11,7 @@ ybchart.pyramid({
     x: 100,
     y: 50,
     height: 40,
-    radian: 50
+    radian: 40
   },
   title: {
     text: "营业收入完成率",
