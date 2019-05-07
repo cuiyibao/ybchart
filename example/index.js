@@ -6,24 +6,11 @@ console.log(ybchart)
 
 ybchart.init(App)
 
-ybchart.pyramid({
+ybchart.hourHand({
   shape: {
     x: 100,
-    y: 50,
-    height: 40,
-    radian: 40
+    y: 100,
+    r: 73
   },
-  title: {
-    text: "营业收入完成率",
-    color: "red",
-    fontSize: 14
-  },
-  color: ["#de4d96", "#2651cc"],
-  navBar: {
-    textStyle: {
-      color: "#6775ad"
-    },
-    icon: "circle",
-    data: ["已控制", "未控制"]
-  },
+  fraction: 40
 })

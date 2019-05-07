@@ -33,14 +33,14 @@ function Pyramid(opts) {
       if (shape.radian > 40) {
         var radianR = 2 * Math.PI / 360 * (shape.radian - 40); // 角度
         var xR = Math.sin(radianR) * h; // 三角形 高
-        var yR = Math.cos(radianR) * h // 三角形 上边
+        var yR = Math.cos(radianR) * h; // 三角形 上边
         path.lineTo(x - xR, y + yR)
       } else if (shape.radian == 40) {
         path.lineTo(x, y + h)
       } else {
         var radianR = 2 * Math.PI / 360 * (40 - shape.radian); // 角度
         var xR = Math.sin(radianR) * h; // 三角形 高
-        var yR = Math.cos(radianR) * h // 三角形 上边
+        var yR = Math.cos(radianR) * h; // 三角形 上边
         path.lineTo(x - xR, y + yR)
       }
       path.fill()
@@ -138,34 +138,34 @@ function Pyramid(opts) {
   group.add(trapezoidL)
   group.add(trapezoidR)
 
-  triangleL.animateTo({
-    shape: {
-      radian: 0
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
-  triangleR.animateTo({
-    shape: {
-      radian: 80
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
-  trapezoidL.animateTo({
-    shape: {
-      radian: 0
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
-  trapezoidR.animateTo({
-    shape: {
-      radian: 80
-    }
-  }, 3000, 100, 'rotate', function () {
-      // done
-  });
+  // triangleL.animateTo({
+  //   shape: {
+  //     radian: 0
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
+  // triangleR.animateTo({
+  //   shape: {
+  //     radian: 80
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
+  // trapezoidL.animateTo({
+  //   shape: {
+  //     radian: 0
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
+  // trapezoidR.animateTo({
+  //   shape: {
+  //     radian: 80
+  //   }
+  // }, 3000, 100, 'rotate', function () {
+  //     // done
+  // });
 
   // 标题
   var title = new zrender.Text({
