@@ -1,6 +1,7 @@
 var zrender = require("zrender")
 var Pyramid = require("./pyramid")
 var HourHand = require("./hourHand")
+var DiffPie = require("./diffPie")
 
 function YbChart() {
   this.name = "YbChart"; // 名字
@@ -29,6 +30,16 @@ YbChart.prototype.hourHand = function(opts) {
   var _opts = opts || {}
   var hourHand = HourHand(_opts)
   this.zr.add(hourHand);
+}
+
+/**
+ * 差距饼图
+ * @param {*} opts 
+ */
+YbChart.prototype.diffPie = function(opts) {
+  var _opts = opts || {}
+  var diffPie = DiffPie(_opts)
+  this.zr.add(diffPie);
 }
 
 module.exports = YbChart;

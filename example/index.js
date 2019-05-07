@@ -6,11 +6,10 @@ console.log(ybchart)
 
 ybchart.init(App)
 
-ybchart.hourHand({
+ybchart.diffPie({
   shape: {
     x: 100,
     y: 100,
     r: 73
-  },
-  fraction: 40
+  }
 })
