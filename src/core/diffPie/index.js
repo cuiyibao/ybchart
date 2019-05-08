@@ -49,8 +49,8 @@ function DiffPie(opts) {
 
   // 导航
   var index = 0
+  var narY = 100
   opts.navBar.data.forEach(function(ele, ind) {
-    var narY = 100
     if ((ind % 2) == 0 && ind > 0) {
       narY += 25
       index = ind
