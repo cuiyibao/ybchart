@@ -51,13 +51,13 @@ function DiffPie(opts) {
   var index = 0
   opts.navBar.data.forEach(function(ele, ind) {
     var narY = 100
-    if ((80 + 70 * (ind - index)) > opts.width) {
-      narY = 125
+    if ((ind % 2) == 0 && ind > 0) {
+      narY += 25
       index = ind
     }
     var circle = new zrender.Circle({
       shape: {
-        cx: 30 + 70 * (ind - index),
+        cx: 40 + 100 * (ind - index),
         cy: opts.shape.y + narY + 5,
         r: 6
       },
@@ -75,7 +75,7 @@ function DiffPie(opts) {
         textAlign: 'left',
         textVerticalAlign: 'top'
       },
-      position: [40 + 70 * (ind - index), opts.shape.y + narY]
+      position: [50 + 100 * (ind - index), opts.shape.y + narY]
     })
   
     group.add(bar)

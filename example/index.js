@@ -1,43 +1,82 @@
 import ybchart from "../src/"
 
-const App = document.getElementById("app")
+const chart1 = document.getElementById("chart1")
 
-console.log(ybchart)
+ybchart.init(chart1)
 
-ybchart.init(App)
+ybchart.pyramid({
+  shape: {
+    x: 100,
+    y: 50,
+    height: 60
+  },
+  title: {
+    text: "表头",
+    color: "#fff",
+    fontSize: 14
+  },
+  color: ["#de4d96", "#2651cc"],
+});
+
+const chart2 = document.getElementById("chart2")
+
+ybchart.init(chart2)
+
+ybchart.pyramid({
+  shape: {
+    x: 100,
+    y: 50,
+    height: 20
+  },
+  title: {
+    text: "表头",
+    color: "#fff",
+    fontSize: 14
+  },
+  color: ["#de4d96", "#2651cc"],
+});
+
+const chart3 = document.getElementById("chart3")
+
+ybchart.init(chart3)
+
+ybchart.pyramid({
+  shape: {
+    x: 100,
+    y: 50,
+    height: 90
+  },
+  title: {
+    text: "表头",
+    color: "#fff",
+    fontSize: 14
+  },
+  color: ["#de4d96", "#2651cc"],
+});
+
+const chart4 = document.getElementById("chart4")
+
+ybchart.init(chart4)
 
 ybchart.diffPie({
   shape: {
     x: 110,
-    y: 100,
+    y: 80,
     r: 73,
-    pW: 50,
+    pW: 50
   },
-  color: ["#35aea2", "#2652cc", "#de4e96", "#e8a937"],
+  color: ["#de4e96", "#32ada3", "#2954d2"],
   data: [
-    {
-      value: 10,
-      name: "25以下"
-    },
-    {
-      value: 50,
-      name: "25-35"
-    },
-    {
-      value: 20,
-      name: "35-50"
-    },
-    {
-      value: 20,
-      name: "50以上"
-    }
+    { value: 15, name: "高中及以上" },
+    { value: 30, name: "专科" },
+    { value: 75, name: "本科及以上" }
   ],
   navBar: {
     textStyle: {
       color: "#6775ad"
     },
     icon: "circle",
-    data: ["25以下", "25-35", "35-50", "50以上"]
+    data: ["高中及以上", "专科", "本科及以上"]
   },
-  width: 230
-})
+  width: 200
+});

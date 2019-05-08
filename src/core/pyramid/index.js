@@ -181,32 +181,34 @@ function Pyramid(opts) {
   group.add(title)
 
   // 导航
-  opts.navBar.data.forEach(function(ele, ind) {
-    var circle = new zrender.Circle({
-      shape: {
-        cx: 30 + 100 * ind,
-        cy: opts.shape.y + 145,
-        r: 6
-      },
-      style: {
-        fill: opts.color[ind],
-      },
-    })
+  if (opts.navBar && opts.navBar.data) {
+    opts.navBar.data.forEach(function(ele, ind) {
+      var circle = new zrender.Circle({
+        shape: {
+          cx: 30 + 100 * ind,
+          cy: opts.shape.y + 145,
+          r: 6
+        },
+        style: {
+          fill: opts.color[ind],
+        },
+      })
+    
+      group.add(circle)
   
-    group.add(circle)
-
-    var bar = new zrender.Text({
-      style: {
-        text: ele,
-        textFill: opts.navBar.textStyle.color,
-        textAlign: 'center',
-        textVerticalAlign: 'top'
-      },
-      position: [60 + 100 * ind, opts.shape.y + 140]
+      var bar = new zrender.Text({
+        style: {
+          text: ele,
+          textFill: opts.navBar.textStyle.color,
+          textAlign: 'center',
+          textVerticalAlign: 'top'
+        },
+        position: [60 + 100 * ind, opts.shape.y + 140]
+      })
+    
+      group.add(bar)
     })
-  
-    group.add(bar)
-  })
+  }
 
   return group
 }
