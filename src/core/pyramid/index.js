@@ -138,6 +138,35 @@ function Pyramid(opts) {
   group.add(trapezoidL)
   group.add(trapezoidR)
 
+  // 三角形文字标
+  var radianL = 2 * Math.PI / 360 * 40; // 左角度
+  var xL = Math.sin(radianL) * opts.shape.height // 三角形 高
+  var yL = Math.cos(radianL) * opts.shape.height // 三角形 上边
+  var triangleText = new zrender.Text({
+    style: {
+      text: opts.shape.height + "%", 
+      textFill: "#fff",
+      textAlign: 'left',
+      textVerticalAlign: 'center'
+    },
+    position: [opts.shape.x + xL/2 + 10, opts.shape.y + yL/2]
+  })
+  group.add(triangleText)
+
+  var tA = Math.sin(radianL) * (100 - opts.shape.height) // 三角形 高
+  var tQ = Math.cos(radianL) * (100 - opts.shape.height); // 三角形 上边
+  // 梯形文字标
+  var trapezoidText = new zrender.Text({
+    style: {
+      text: (100 - opts.shape.height) + "%", 
+      textFill: "#fff",
+      textAlign: 'left',
+      textVerticalAlign: 'center'
+    },
+    position: [opts.shape.x + (xL + tA) / 2, opts.shape.y + (yL + tQ) + 20]
+  })
+  group.add(trapezoidText)
+
   // triangleL.animateTo({
   //   shape: {
   //     radian: 0
